@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="./common.css">
+<link rel="stylesheet" href="./gird.css">
+<link rel="stylesheet" href="./animate.css">
+<link rel="stylesheet" href="./resume.css">
+<html lang="en">
+
+<body>
+    <div class="main-container">
+        <div class="useful-link no-print">
+        </div>
+        <!--basic-info-->
+        <section class="section section-header">
+            <div class="section-bg section-header-bg"></div>
+            <div class="section-bg section-content-bg"></div>
+            <div class="container">
+                <header class="header">
+                    <div class="header-box">
+                        <div class="avatar wow inShow no-print">
+                            <img src="/assets/image/me.jpg" alt="logo" class="img-responsive">
+                        </div>
+                        <h1 style="cursor:pointer"
+                            class="name text-center wow no-print animated tada shake-opacity hover-stop">
+                            林漫
+                        </h1>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="content-box">
+                        <div class="name-slogan">
+                            <h3 class="wow inShow no-print" data-wow-delay="0.1s">
+                                <span class="text-light">一枚不仅是前端攻城狮的程序媛</span>
+                            </h3>
+                            <div class="description wow inShow" data-wow-delay="0.15s">写得了代码，解得了BUG，画的了原型，谈得了架构，带得了团队
+                            </div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="item wow inShow" data-wow-delay="0.3s">
+                                        <h4>性别</h4>
+                                        <div class="info">女</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="item wow inShow" data-wow-delay="0.45s">
+                                        <h4>生日</h4>
+                                        <div class="info">1995.3.10</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="item wow inShow" data-wow-delay="0.5s"
+                                        :href="'mailto:'+basicInfo.email">
+                                        <h4>学历</h4>
+                                        <div class="info">大学本科</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <a class="item wow inShow" data-wow-delay="0.7s" :href="basicInfo.website"
+                                        target="_blank">
+                                        <h4>Website</h4>
+                                        <div class="info">manman0310.github.io</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="item wow inShow" data-wow-delay="0.6s">
+                                        <h4>Phone</h4>
+                                        <address class="info">15574922220</address>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="item wow inShow" data-wow-delay="0.65s">
+                                        <h4>工作经验</h4>
+                                        <div class="info">
+                                            4年
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="item wow inShow" data-wow-delay="0.65s">
+                                        <h4>QQ</h4>
+                                        <div class="info" style="">591858556</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <a class="item wow inShow" data-wow-delay="0.75s" :href="basicInfo.github"
+                                        target="_blank">
+                                        <h4>Github</h4>
+                                        <div class="info">https://github.com/manman0310</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--skills-->
+        <section @mouseenter='changeStyle' @mouseleave='resetStyle' class="section">
+            <div class="container">
+                <div class="section-bg section-header-bg"></div>
+                <div class="section-bg section-content-bg"></div>
+                <header class="header">
+                    <div class="content-box">
+                        <h2 class="title">技能&nbsp;/&nbsp;
+                            <small><i>Skills</i></small>
+                        </h2>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="skill">
+                        <div>
+                            <div class="item">
+                                <div class="text-info">
+                                    <span class="num text-light">技术栈</span>html5 css3 JavaScript Jquery TypeScript
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar wow progressShow" :style="width:100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="item">
+                                <div class="text-info">
+                                    <span class="num text-light">框架</span>Angular2+ Ionic3+ NG-ZORRO ng-alain Echarts
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar wow progressShow" :style="width:100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="item">
+                                <div class="text-info">
+                                    <span class="num text-light">工具</span>Git Jenkins Tfs Axure xMind
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar wow progressShow" :style="width:100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="item">
+                                <div class="text-info">
+                                    <span class="num text-light">平台或服务器</span>Cordova Docker Linux IIS Nginx
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar wow progressShow" :style="width:100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="item">
+                                <div class="text-info">
+                                    <span class="num text-light">What’s more…</span>基本数据库操作，了解MQTT
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar wow progressShow" :style="width:100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section @mouseenter='changeStyle' @mouseleave='resetStyle' class="section">
+            <div class="container">
+                <div class="section-bg section-header-bg"></div>
+                <div class="section-bg section-content-bg"></div>
+                <header class="header">
+                    <div class="content-box">
+                        <h2 class="title">介绍&nbsp;/&nbsp;
+                            <small><i>Intro</i></small>
+                        </h2>
+                        <div class="description"></div>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="intro">
+                        <p>熟悉前端项目构建，有过基于angular2+,ionic3+cordova的产品开发经验。</p>
+                        <p>喜欢开源，热爱团队合作，喜欢带领大家攻坚。</p>
+                        <p>熟悉和习惯MVC的开发模式和基于git的版本管理，热爱研究敏捷开发工具和脚本解放大家</p>
+                        <p>项目需求接收确认，梳理拆分，敏捷开发，交付验收</p>
+                        <p>熟悉linux操作系统，发版运维一手抓</p>
+                        <p>会设计，懂交互，熟练使用Axure,xMind,也能玩一玩photoshop,visio</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--experience-->
+        <section @mouseenter='changeStyle' @mouseleave='resetStyle' class="section">
+            <div class="container">
+                <div class="section-bg section-header-bg"></div>
+                <div class="section-bg section-content-bg"></div>
+                <header class="header">
+                    <div class="content-box">
+                        <h2 class="title">工作经历&nbsp;/&nbsp;
+                            <small><i>Experience</i></small>
+                        </h2>
+                        <div class="description">我的简短的从业经历介绍</div>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="experience">
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="time">2018.06 -- 至今</div>
+                                    <div class="title">上海繁易信息科技股份有限公司</div>
+                                    <div class="description">软件与项目部</div>
+                                    <div class="description">高级前端工程师</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content text-light">成绩：2019年度优秀员工，全年绩效考核部门第一</div>
+                                    <div class="tips">
+                                        <p style="margin-bottom: 4px;"><b> 站在物联网的风口，深入剖析用户底层需求。</b> </p>
+                                        <ul>
+                                            <li>公司主线产品开发工作，web端以及移动端迭代工作，参与功能设计及评审。</li>
+                                            <li>具备独立完成网页端及移动端前端开发能力，熟练使用angular6+，ionic3+框架，系统集成极光推送，短信，高德等第三方api，使用swagger管理后台api。
+                                            </li>
+                                            <li>私有云定制项目负责人，善于沟通客户，需求调研分析，功能设计，流程图及原型图产出，跨部门协作，技术支持及基础运维工作。</li>
+                                            <li>搭建持续集成环境以及容器化部署流程（Jenkins & tfs），熟悉docker，linux操作。</li>
+                                            <li>移动端应用上架各大安卓市场以及苹果商店，证书签名等流程熟练，了解软件著作权申请流程。</li>
+                                            <li>担任公司线上直播工作讲师，主讲软件架构以及行业案例。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="time">2016.06 -- 2018.06</div>
+                                    <div class="title">上海中畅数据技术有限公司</div>
+                                    <div class="description">CMDB项目部</div>
+                                    <div class="description">前端工程师</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content text-light">成绩：CMDB项目组获得2018年最佳项目组称号</div>
+                                    <div class="tips">
+                                        <b class=""></b>
+                                        <ul>
+                                            <li>cmdb项目前端开发主力，基于angular2+,html5/css3/js开发前端系统。</li>
+                                            <li>cmdb项目模型管理，权限管理，自动下发等功能模块前端开发。</li>
+                                            <li>参与客户需求调研分析，功能设计，跨部门沟通协作。</li>
+                                            <li>公司中台监控系统前端开发，报警监控模块迭代。</li>
+                                            <li>文件管理平台前端开发。</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--project-->
+        <section @mouseenter='changeStyle' @mouseleave='resetStyle' class="section">
+            <div class="container">
+                <div class="section-bg section-header-bg"></div>
+                <div class="section-bg section-content-bg"></div>
+                <header class="header">
+                    <div class="content-box">
+                        <h2 class="title">项目经验&nbsp;/&nbsp;
+                            <small><i>Experience</i></small>
+                        </h2>
+                        <div class="description">主要做过的一些项目</div>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="experience">
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="time">2018.08-2019.12</div>
+                                    <div class="title">常州科能变配电管理系统 <br>及规约转换系统</div>
+                                    <div class="description">项目负责人</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content text-light">全面把控项目进度，稳步迭代交付</div>
+                                    <div class="tips">
+                                        <ul>
+                                            <li>基于公司主线产品定制私有化开发部署。</li>
+                                            <li>基于NG-ZORRO,ng-alain框架开发61850规约转换系统。</li>
+                                            <li>项目搭建以及功能开发。主要包括web端和app端视频直播，视频回放，web端离线地图功能，web端基于signalr，app端基于jpush实时推送消息。
+                                            </li>
+                                            <li>客户需求接收沟通，调研分析，项目整体把控，难点攻破，系统功能设计开发，部署及技术支持。</li>
+                                            <li>网页端及手机端前端开发主力，设计开发电力规约61850转换系统。</li>
+                                            <li>深入电力行业，项目复盘，案例分析。</li>
+                                        </ul>
+                                    </div>
+                                    <div class="technology">
+                                        <b>技术栈</b>
+                                        <ul class="inline">
+                                            <li>html5/css3/js</li>
+                                            <li>angular6+</li>
+                                            <li>ionic3+</li>
+                                            <li>NG-ZORRO</li>
+                                            <li>ng-alain</li>
+                                            <li>Cordova</li>
+                                            <li>Jpush</li>
+                                            <li>signalr</li>
+                                            <li>Echarts</li>
+                                            <li>Git</li>
+                                            <li>Jenkins</li>
+                                            <li>MQTT</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="time">2019.10-2020.6</div>
+                                    <div class="title">杭州德联热家室温项目</div>
+                                    <div class="description">项目负责人</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content text-light">把物联网的成果带入千家万户</div>
+                                    <div class="tips">
+                                        <ul>
+                                            <li>调研客户需求，设计开发To c端热家室温app，接入公司NB-IOT设备数据。</li>
+                                            <li>基于cordova平台+ionic4开发android及ios APP，集成极光推送以及高德api。
+                                            </li>
+                                            <li>后台采用docker镜像方式部署，负责环境发布及部署运维。</li>
+                                            <li>app安卓端和ios端打包上线,证书签名等流程熟练，协助完成软件著作权申请。</li>
+                                            <li>把控项目进度，稳步迭代，完成项目验收结项工作。</li>
+                                        </ul>
+                                    </div>
+                                    <div class="technology">
+                                        <b>技术栈</b>
+                                        <ul class="inline">
+                                            <li>html5/css3/js</li>
+                                            <li>angular8</li>
+                                            <li>ionic4</li>
+                                            <li>Jpush</li>
+                                            <li>Docker</li>
+                                            <li>signalr</li>
+                                            <li>Echarts</li>
+                                            <li>Git</li>
+                                            <li>Tfs</li>
+                                            <li>NB-iot</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="time">2018.6-2019.11</div>
+                                    <div class="title">上海川田机械制造项目三期</div>
+                                    <div class="description">前端工程师</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content text-light">为设备制造商提供转型利器</div>
+                                    <div class="tips">
+                                        <ul>
+                                            <li>使用angular5框架开发web端，基于cordova平台+ionic3开发android及ios APP。</li>
+                                            <li>客户需求分析，设计开发设备生命周期管理模块以及完整工单系统。</li>
+                                            <li>带领重构旧版APP UI以及功能模块，APP上架IOS市场。</li>
+                                            <li>多环境部署，正式环境部署及技术支持工作。</li>
+                                            <li>物联网于OEM设备制造商以及服务商行业经验产出。</li>
+                                        </ul>
+                                    </div>
+                                    <div class="technology">
+                                        <b>技术栈</b>
+                                        <ul class="inline">
+                                            <li>html5/css3/js</li>
+                                            <li>angular5</li>
+                                            <li>ionic3</li>
+                                            <li>Jpush</li>
+                                            <li>signalr</li>
+                                            <li>Echarts</li>
+                                            <li>Git</li>
+                                            <li>Tfs</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="time">2018.6-2019.11</div>
+                                    <div class="title">上海川田机械制造项目三期</div>
+                                    <div class="description">前端工程师</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content text-light">为设备制造商提供转型利器</div>
+                                    <div class="tips">
+                                        <ul>
+                                            <li>使用angular5框架开发web端，基于cordova平台+ionic3开发android及ios APP。</li>
+                                            <li>客户需求分析，设计开发设备生命周期管理模块以及完整工单系统。</li>
+                                            <li>带领重构旧版APP UI以及功能模块，APP上架IOS市场。</li>
+                                            <li>多环境部署，正式环境部署及技术支持工作。</li>
+                                            <li>物联网于OEM设备制造商以及服务商行业经验产出。</li>
+                                        </ul>
+                                    </div>
+                                    <div class="technology">
+                                        <b>技术栈</b>
+                                        <ul class="inline">
+                                            <li>html5/css3/js</li>
+                                            <li>angular5</li>
+                                            <li>ionic3</li>
+                                            <li>Jpush</li>
+                                            <li>signalr</li>
+                                            <li>Git</li>
+                                            <li>Tfs</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="time">2017.5-2018.5</div>
+                                    <div class="title">上海国泰君安证券cmdb系统</div>
+                                    <div class="description">前端工程师</div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content text-light">深入了解CMDB系统建模思维</div>
+                                    <div class="tips">
+                                        <ul>
+                                            <li>项目结构搭建，前台基于angular2框架，采用html5拖动，web储存方式，以及新的表单控件，ui框架采用metronic。使用webpack打包发布项目，引入echarts数据可视化图表。
+                                            </li>
+                                            <li>参与项目原型图设计制作以及项目需求分析规划。</li>
+                                            <li>模型管理，资源管理等8个模块开发。</li>
+                                            <li>参与自动发现流程规划及完整前台模块开发，完成corn表达式组件的开发并提供给公司其他界面通用。</li>
+                                        </ul>
+                                    </div>
+                                    <div class="technology">
+                                        <b>技术栈</b>
+                                        <ul class="inline">
+                                            <li>html5/css3/js</li>
+                                            <li>angular2</li>
+                                            <li>Echarts</li>
+                                            <li>Git</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--moreInfo-->
+        <!-- <section @mouseenter='changeStyle' @mouseleave='resetStyle' class="section" v-if="moreInfo">
+            <div class="container">
+                <div class="section-bg section-header-bg"></div>
+                <div class="section-bg section-content-bg"></div>
+                <header class="header">
+                    <div class="content-box">
+                        <h2 class="title">常逛&nbsp;/&nbsp;
+                            <small><i>Usually</i></small>
+                        </h2>
+                        <div class="description">经常逛的网站和工具</div>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="row usually">
+                        <div class="col-lg-4 col-md-6" v-for="u in moreInfo.usually">
+                            <a v-if="u.link" :href="u.link" target="_blank" class="item" :title="u.link">
+                                <i class="fa fa-github"></i>
+                                <h3 class="text-light">{{u.name}}</h3>
+                                <p>{{u.description}}</p>
+                            </a>
+                            <div v-if="!u.link" class="item" :title="u.link">
+                                <i class="fa fa-github"></i>
+                                <h3 class="text-light">{{u.name}}</h3>
+                                <p>{{u.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <section @mouseenter='changeStyle' @mouseleave='resetStyle' class="section no-print" v-if="basicInfo">
+            <div class="container">
+                <div class="section-bg section-header-bg"></div>
+                <div class="section-bg section-content-bg"></div>
+                <header class="header">
+                    <div class="content-box">
+                        <h2 class="title">联系&nbsp;/&nbsp;
+                            <small><i>Contact</i></small>
+                        </h2>
+                        <div class="description">通过这些信息可以联系到我</div>
+                    </div>
+                </header>
+                <div class="section-content">
+                    <div class="contact">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="item">
+                                    <h4>Phone</h4>
+                                    <div class="info">15574922220</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="item">
+                                    <h4>QQ</h4>
+                                    <div class="info">591858556</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="item">
+                                    <h4>Location</h4>
+                                    <div class="info">山东 济南</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <a class="item" :href="mailto:591858556@qq.com">
+                                    <h4>Email</h4>
+                                    <div class="info">591858556@qq.com</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="name-slogan">
+                        <h2 class="wow inShow">
+                            <span class="text-light">Lin</span>&nbsp;Man
+                        </h2>
+                        <div class="description wow inShow" data-wow-delay="0.05s">
+                            一枚不仅是前端攻城狮的程序媛
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+
+</html>
