@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/konpa/devicon@df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+<link rel="stylesheet" href="/assets/css/blog.css">
+<html lang="en">
+{% include head.html %}
+
+<body>
+
+    {% include blog_header.html %}
+    <div id="g-blog">
+        <div class="g-blog-left">
+
+            {% include blog_left.html %}
+        </div>
+        <div class="g-blog-right">
+            <section>
+                {{content}}
+            </section>
+        </div>
+    </div>
+    {% include blog_footer.html %}
+</body>
+
+</html>

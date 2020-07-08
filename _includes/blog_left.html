@@ -1,0 +1,12 @@
+<div class="m-contents">
+    contents 目录
+</div>
+
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <a href="{{ post.url }}"
+            style="{% if post.title == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
