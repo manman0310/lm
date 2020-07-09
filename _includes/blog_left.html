@@ -5,7 +5,7 @@
 <ul>
     {% for post in site.posts %}
     <li>
-        <a href="{{ post.url }}"
+        <a href="{{ post.url | prepend: site.github_url }}"
             style="{% if post.title == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{ post.title }}</a>
     </li>
     {% endfor %}
