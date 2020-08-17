@@ -27,3 +27,5 @@ posts:
     url:'lm/2020-07-08-script-1'
   - title:'常用命令备忘录'
     url:'lm/2020-07-20-memo-script'
+  - title:'基于cordova自动打包app脚本'
+    url:'lm/2020-08-17-auto-build-app-shell'
