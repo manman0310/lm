@@ -12,8 +12,13 @@
   top: 0;
   left: calc(50% - 200px);
   font-weight: 600;
+  color: #251f44;
 }
 
 .user-details h1 a:hover {
-  text-decoration: underline;
+  color: #fe91ca;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
 }

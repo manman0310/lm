@@ -3,6 +3,7 @@
         font-weight: 600;
         position: relative;
         margin-top: 2em;
+
         a {
             text-decoration: none;
             position: absolute;
@@ -11,10 +12,15 @@
             top: 0;
             left: calc(50% - 200px);
             font-weight: 600;
+            color: #251f44;
 
             &:hover {
-                text-decoration: underline;
+                color: #fe91ca;
             }
         }
     }
+}
+
+::-webkit-scrollbar {
+    width: 1px;
 }
