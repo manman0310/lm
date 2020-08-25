@@ -1,12 +1,14 @@
 <div class="m-contents">
-   
+    目录
 </div>
-
+{% for tag in site.tags %}
+<h3>{{ tag[0] }}</h3>
 <ul>
-    {% for post in site.posts %}
+    {% for post in  tag[1] %}
     <li>
         <a href="{{ post.url | prepend: site.github_url }}"
             style="{% if post.title == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{ post.title }}</a>
     </li>
     {% endfor %}
 </ul>
+{% endfor %}

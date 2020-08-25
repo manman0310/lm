@@ -1,6 +1,7 @@
 ---
 layout: blog_default
 title:  "基于cordova自动打包app脚本"
+tag: 脚本集合
 ---
 
 # 基于cordova自动打包app脚本
@@ -55,7 +56,7 @@ title:  "基于cordova自动打包app脚本"
 |$3|JPUSH_KEY|-|极光key|
 |$4|GIT_BRANCH|company-proj|if input is none, it will pull use the master branch|
 |$5|GIT_TAG_NAME|2.1.0|if input is none, it will use the latest version|
-|$6|GAODE_KEY|-||$8|GAODE_KEY|-|高德地图key|
+|$6|GAODE_KEY|-|高德地图key|
 |$7|SITE_URL|company-yun.cn|-|
 |$8|IS_MULTI_TENANT|false|【预留字段】是否多租户|
 |$9|IS_HTTPS|false|是否取https|
@@ -101,7 +102,7 @@ title:  "基于cordova自动打包app脚本"
 
 #### prepare.sh
 
-``` 
+``` sh
 #! /bin/bash
 
 DOCKER_IMAGE_TAG=$1
@@ -113,9 +114,9 @@ GIT_BRANCH=$6
 GIT_TAG_NAME=$7
 GAODE_KEY=$8
 SITE_URL=$9
-IS_MULTI_TENANT=$10
-IS_HTTPS=$11
-APP_COLOR=$12
+IS_MULTI_TENANT=${10}
+IS_HTTPS=${11}
+APP_COLOR=${12}
 
 DOCKER_IMAGE_NAME=你的镜像名称
 
@@ -133,13 +134,13 @@ echo "copy build.sh into docker container"
 docker cp ./build.sh $DOCKER_IMAGE_NAME:/opt
 
 echo "into docker container with run shell"
-docker exec -it -w /opt $DOCKER_IMAGE_NAME /bin/bash ./jenkins-docker.sh $APP_KEYWORD $APP_NAME $JPUSH_KEY $GIT_BRANCH $GIT_TAG_NAME
+docker exec -it -w /opt $DOCKER_IMAGE_NAME /bin/bash ./build.sh $APP_KEYWORD $APP_NAME $JPUSH_KEY $GIT_BRANCH $GIT_TAG_NAME
 
 ```
 
 #### build.sh
 
-``` 
+``` sh
 #! /bin/bash
 
 APP_KEYWORD=$1
@@ -151,7 +152,7 @@ GAODE_KEY=$6
 SITE_URL=$7
 IS_MULTI_TENANT=$8
 IS_HTTPS=$9
-APP_COLOR=$10
+APP_COLOR=${10}
 
 GIT_AUTH=git鉴权信息
 GLOBAL_NEXUX="仓库地址"
@@ -200,7 +201,7 @@ sed -e "$enableHttps_line s@$enableHttps_old@$IS_HTTPS,@" -i
 
 echo "jpush APP_KEY =====> $JPUSH_KEY..."
 APP_KEY_line=$(awk -F"\"" '/APP_KEY/{print NR}' package.json) # 记住行号
-APP_KEY_old=$(awk -F"\"" '/APP_KEY/{print $4}' package1.json)  # 获取旧数据
+APP_KEY_old=$(awk -F"\"" '/APP_KEY/{print $4}' package.json)  # 获取旧数据
 sed -e "$APP_KEY_line s@$APP_KEY_old@$JPUSH_KEY@" -i package.json # 替换所在行的老数据
 echo "end update infos in package.json"
 
@@ -236,7 +237,7 @@ echo "jarsigner to sign apk"
 cd platforms/android/app/build/outputs/apk/release
 jarsigner -verbose -keystore /apk/$APP_KEYWORD.keystore -keypass 123456 -storepass 123456 -signedjar $APP_KEYWORD.apk app-release-unsigned.apk $APP_KEYWORD
 
-echo "upload $APP_NAME.apk to $APP_NAME file"
-curl -X POST "$GLOBAL_NEXUX/service/rest/v1/components?repository=artifact" -H "accept:application/json" -H "Content-Type:multipart/form-data" -F "raw.directory=fcloud-artifact/project/$APP_KEYWORD" -F "raw.asset1=@$APP_NAME.apk" -F "raw.asset1.filename=$APP_NAME.apk" -u "$GLOBAL_NEXUX_BASICAUTH" -v
+echo "upload $APP_KEYWORD.apk to $APP_KEYWORD file"
+curl -X POST "$GLOBAL_NEXUX/service/rest/v1/components?repository=artifact" -H "accept:application/json" -H "Content-Type:multipart/form-data" -F "raw.directory=fcloud-artifact/project/$APP_KEYWORD" -F "raw.asset1=@$APP_KEYWORD.apk" -F "raw.asset1.filename=$APP_KEYWORD.apk" -u "$GLOBAL_NEXUX_BASICAUTH" -v
 
 ```

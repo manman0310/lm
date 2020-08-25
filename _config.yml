@@ -11,12 +11,13 @@ user_description: I want to be more than just a coder.
 user_title: Software Engineer
 user_title_cn: 高级前端开发工程师
 email: 591858556@qq.com
-# twitter_username: lorem_ipsum
-# github_username:  lorem_ipsum
-# gplus_username:  lorem_ipsum
-
-baseurl: https://manman0310.github.io
-github_url: https://manman0310.github.io/lm
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+highlighter: rouge
+# baseurl: https://manman0310.github.io
+# github_url: https://manman0310.github.io/lm
 
 exclude: ["package.json", "src", "node_modules"]
 
@@ -31,3 +32,5 @@ posts:
     url:'lm/2020-07-20-memo-script'
   - title:'基于cordova的安卓APP基础镜像'
     url:'lm/2020-08-18-app-base-dockerfile'
+  - title:'shell脚本爬坑杂记'
+    url:'lm/2020-08-01-trouble-in-shell'
