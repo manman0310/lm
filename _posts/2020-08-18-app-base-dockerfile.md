@@ -1,6 +1,7 @@
 ---
 layout: blog_default
 title:  "基于cordova的安卓APP基础镜像"
+tag: docker
 ---
 
 # 基于cordova的安卓APP基础镜像
@@ -13,10 +14,10 @@ title:  "基于cordova的安卓APP基础镜像"
 
 ### java环境基础镜像(底层是xenial的ubuntu)
 
-**jdk版本： 1.8**
+**jdk版本： 1.8**  
 **镜像名称： javabase**
 
-``` 
+``` sh
 FROM ubuntu:xenial
 
 MAINTAINER LINMAN 
@@ -47,15 +48,14 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 ### android环境基础镜像
 
-**android sdk： 28**
+**android sdk： 28**  
 **镜像名称： androidbase**
 
-**入参**
 |序号|名称|默认值|
-|:-:|:-:|:-:|
-|1|GRADLE_VERSION|3.3|
+|:--------|:-------:|--------:|
+|1|GRADLE_VERSION|3.3|  
 
-``` 
+``` sh
 FROM 私有仓/javabase:1.0
 
 MAINTAINER LINMAN
@@ -99,16 +99,15 @@ RUN mkdir /root/.android && touch /root/.android/repositories.cfg \
 
 ### cordova环境基础镜像
 
-**cordova： 9.0**
+**cordova： 9.0**  
 **镜像名称： cordovabase**
 
-|入参|
 |序号|名称|默认值|
 |:-:|:-:|:-:|
 |1|BASE_IMAGE_VERSION|28|
 |2|BASE_IMAGE_TAG|1.0|
 
-``` 
+``` sh
 ARG BASE_IMAGE_VERSION=28
 ARG BASE_IMAGE_TAG=1.0
 
