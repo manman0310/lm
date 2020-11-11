@@ -1,7 +1,7 @@
 ---
 layout: blog_default
-title:  "基于cordova自动打包app脚本"
-tag: 脚本集合
+title:  "基于cordova持续集成app脚本"
+tag: 持续集成
 ---
 
 # 基于cordova自动打包app脚本
@@ -54,6 +54,10 @@ tag: 脚本集合
 ``` bash
 ./generate-keystore.sh -a delian
 ```
+
+##### 脚本内容
+
+<a href="../../../assets/resource/generate-keystore.html" target="_blank">查看脚本</a>
 
 ***
 

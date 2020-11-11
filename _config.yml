@@ -26,7 +26,7 @@ posts:
     url:'lm/2020-07-05-build-app'
   - title:'快速释放docker空间的脚本'
     url:'lm/2020-07-08-script-1'
-  - title:'基于cordova自动打包app脚本'
+  - title:'基于cordova持续集成app脚本'
     url:'lm/2020-08-17-auto-build-app-shell'
   - title:'常用命令备忘录'
     url:'lm/2020-07-20-memo-script'
