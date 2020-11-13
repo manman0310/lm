@@ -1,7 +1,7 @@
 ---
 layout: blog_default
 title:  "常用命令备忘录"
-tag: 大杂烩
+tag: memo
 ---
 
 # 常用命令备忘录

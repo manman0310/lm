@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Lin Man</title>
+    <meta name="description" content="Software Engineer">
+
+    <link rel="stylesheet" href="resource.css">
+</head>
+
+
+<body>
+    <div class="code">
+        <pre>
+            #! /bin/bash
+
+            declare DOCKER_IMAGE_TAG DOCKER_IMAGE_URL
+            declare APP_KEYWORD APP_NAME SITE_URL
+            declare GAODE_KEY JPUSH_KEY=''
+            declare GIT_BRANCH='master' GIT_TAG_NAME=''
+            declare IS_MULTI_TENANT='false' IS_HTTPS='false' APP_COLOR='blue'
+
+            declare -r DOCKER_IMAGE_NAME=cordova9-tool
+            readonly TEMP_VAR="--"
+
+            # echo original parameters=[$@]
+            ARGS=$(getopt -o p --long is-mulit,is-https,docker-tag:,git-branch:,git-tag:,docker-img:,app-name:,gaode-key:,jpush-key:,site-url:,app-color:,app-key: -n "$0" -- "$@")
+            if [ $? != 0 ]; then
+                echo "prepare failed..."
+                exit 199
+            fi
+            eval set -- "${ARGS}"
+            echo formatted parameters=[$@]
+
+            if [ [$# == 1 ]; then
+                echo "no input parameter for running, prepare failed."
+                exit 101
+            fi
+
+            if [[ $@ != *'docker-tag'* ]]; then
+                echo "missing parameter --docker-tag, prepare failed."
+                exit 102
+            fi
+
+            if [[ $@ != *'docker-img'* ]]; then
+                echo "missing parameter --docker-img, prepare failed."
+                exit 102
+            fi
+
+            if [[ $@ != *'app-key'* ]]; then
+                echo "missing parameter --app-key, prepare failed."
+                exit 102
+            fi
+
+            if [[ $@ != *'app-name'* ]]; then
+                echo "missing parameter --app-name, prepare failed."
+                exit 102
+            fi
+
+            if [[ $@ != *'site-url'* ]]; then
+                echo "missing parameter --site-url, prepare failed."
+                exit 102
+            fi
+
+            if [[ $@ != *'gaode-key'* ]]; then
+                echo "missing parameter --gaode-key, prepare failed."
+                exit 102
+            fi
+
+            while [ -n "$1" ]; do
+                case "$1" in
+                --docker-tag)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--docker-tag without any value, prepare failed."
+                        exit 199
+                    else
+                        DOCKER_IMAGE_TAG=$2
+                        echo "DOCKER_IMAGE_TAG is $DOCKER_IMAGE_TAG"
+                    fi
+                    ;;
+                --docker-img)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--docker-img without any value, prepare failed."
+                        exit 199
+                    else
+                        DOCKER_IMAGE_URL=$2
+                        echo "DOCKER_IMAGE_URL is $DOCKER_IMAGE_URL"
+                    fi
+                    ;;
+                --app-key)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--app-key without any value, prepare failed."
+                        exit 199
+                    else
+                        APP_KEYWORD=$2
+                        echo "APP_KEYWORD is $APP_KEYWORD"
+                    fi
+                    ;;
+                --app-name)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--app-name without any value, prepare failed."
+                        exit 199
+                    else
+                        APP_NAME=$2
+                        echo "APP_NAME is $APP_NAME"
+                    fi
+                    ;;
+                --site-url)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--site-url without any value, prepare failed."
+                        exit 199
+                    else
+                        SITE_URL=$2
+                        echo "SITE_URL is $SITE_URL"
+                    fi
+                    ;;
+                --jpush-key)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--jpush-key without any value, prepare failed."
+                        exit 199
+                    else
+                        JPUSH_KEY=$2
+                        echo "JPUSH_KEY is $JPUSH_KEY"
+                    fi
+                    ;;
+                --gaode-key)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--gaode-key without any value, prepare failed."
+                        exit 199
+                    else
+                        GAODE_KEY=$2
+                        echo "GAODE_KEY is $GAODE_KEY"
+                    fi
+                    ;;
+                --git-branch)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--git-branch without any value, prepare failed."
+                        exit 199
+                    else
+                        GIT_BRANCH=$2
+                        echo "GIT_BRANCH is $GIT_BRANCH"
+                    fi
+                    ;;
+                --git-tag)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--git-tag without any value, prepare failed."
+                        exit 199
+                    else
+                        GIT_TAG_NAME=$2
+                        echo "GIT_TAG_NAME is $GIT_TAG_NAME"
+                    fi
+                    ;;
+                --is-mulit)
+                    IS_MULTI_TENANT='true'
+                    echo "IS_MULTI_TENANT is $IS_MULTI_TENANT"
+                    ;;
+                --is-https)
+                    IS_HTTPS='true'
+                    echo "IS_HTTPS is $IS_HTTPS"
+                    ;;
+                --app-color)
+                    if [ ${2:0:2} == $TEMP_VAR ]; then
+                        echo "--app-color without any value, prepare failed."
+                        exit 199
+                    else
+                        APP_COLOR=$2
+                        echo "APP_COLOR is $APP_COLOR"
+                    fi
+                    ;;
+                ":")
+                    echo "no input for running, prepare failed."
+                    exit 199
+                    ;;
+                esac
+                shift
+            done
+
+            funToCreateDockerEnv() {
+                echo "pull docker image :  $DOCKER_IMAGE_URL:$DOCKER_IMAGE_TAG"
+                docker pull $DOCKER_IMAGE_URL:$DOCKER_IMAGE_TAG
+                if [ $? != 0 ]; then
+                    echo "error with pull docker image, prepare failed..."
+                    exit 201
+                else
+                    echo "stop docker container :  $DOCKER_IMAGE_NAME"
+                    docker stop $DOCKER_IMAGE_NAME
+                    docker rm $DOCKER_IMAGE_NAME
+                fi
+
+                echo "run docker image"
+                docker run -itd --name=$DOCKER_IMAGE_NAME --env "CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=https://nexus.****.net/repository/tools/gradle/gradle-4.10.3-all.zip" --env "SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/" -u root $DOCKER_IMAGE_URL:$DOCKER_IMAGE_TAG
+                if [ $? != 0 ]; then
+                    echo "error with running docker image, prepare failed..."
+                    exit 202
+                else
+                    funToCopyShIntoContainer
+                fi
+            }
+
+            funToCopyShIntoContainer() {
+                echo "copy build.sh into docker container"
+                docker cp ./build.sh $DOCKER_IMAGE_NAME:/opt
+                if [ $? != 0 ]; then
+                    echo "error when copy shell into docker container, prepare failed..."
+                    exit 203
+                else
+                    funIntoContainerWithSh
+                fi
+            }
+
+            funIntoContainerWithSh() {
+                echo "into docker container with run shell"
+                docker exec -it -w /opt $DOCKER_IMAGE_NAME /bin/bash ./build.sh -a $APP_KEYWORD -b "$APP_NAME" -c $JPUSH_KEY -d $GIT_BRANCH -e $GIT_TAG_NAME -f $GAODE_KEY -g $SITE_URL -h $IS_MULTI_TENANT -i $IS_HTTPS -j $APP_COLOR
+                if [ $? != 0 ]; then
+                    echo "error when running shell in docker container, prepare failed..."
+                    exit 204
+                fi
+            }
+
+            funToCreateDockerEnv
+
+        </pre>
+    </div>
+    <footer class="footer">
+        <p><span class="love">❤</span> by Lin Man</p>
+    </footer>
+</body>
+
+</html>

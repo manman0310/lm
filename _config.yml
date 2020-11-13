@@ -38,3 +38,5 @@ posts:
     url:'lm/2020-10-13-diary'
   - title:'经常使用的css样式'
     url:'lm/2020-10-14-common-css'
+  - title:'自动化构建ios APP'
+    url:'lm/2020-11-11-auto-build-ios-app'

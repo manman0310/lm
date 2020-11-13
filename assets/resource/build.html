@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Lin Man</title>
+    <meta name="description" content="Software Engineer">
+
+    <link rel="stylesheet" href="resource.css">
+</head>
+
+
+<body>
+    <div class="code">
+        <pre>
+            #! /bin/bash
+
+            declare APP_KEYWORD     # a
+            declare APP_NAME        # b
+            declare JPUSH_KEY       # c
+            declare GIT_BRANCH      # d
+            declare GIT_TAG_NAME    # e
+            declare GAODE_KEY       # f
+            declare SITE_URL        # g
+            declare IS_MULTI_TENANT # h
+            declare IS_HTTPS        # i
+            declare APP_COLOR       # j
+
+            readonly GIT_AUTH=****
+            readonly GLOBAL_NEXUX="https://nexus.****.net"
+            readonly GLOBAL_NEXUX_BASICAUTH="****"
+            declare PACKAGE_NAME
+
+            funCreateWorkspace() {
+                echo "create /apk"
+                if [[ ! -d "/apk" ]]; then
+                    mkdir /apk
+                else
+                    rm -rf /apk/*
+                fi
+                funGetRemoteResource
+            }
+
+            funGetRemoteResource() {
+                echo "get resources & get keystore..."
+                cd /apk
+                wget https://nexus.****.net/repository/artifact/fcloud-artifact/project/$APP_KEYWORD/icon.png
+                wget https://nexus.****.net/repository/artifact/fcloud-artifact/project/$APP_KEYWORD/splash.png
+                wget https://nexus.****.net/repository/artifact/fcloud-artifact/project/$APP_KEYWORD/domain.png
+                wget https://nexus.****.net/repository/artifact/fcloud-artifact/project/$APP_KEYWORD/$APP_KEYWORD.keystore
+                if [ $? != 0 ]; then
+                    echo "get resources failed, build failed..."
+                    exit 101
+                else
+                    chmod 777 $APP_KEYWORD.keystore
+                    funCheckoutBranchAndTag
+                fi
+            }
+
+            funCheckoutBranchAndTag() {
+                echo "clone from git..."
+                cd /apk
+                git clone https://$GIT_AUTH@gitlab.****.net/fcloud/fcloud.git
+                if [ $? != 0 ]; then
+                    echo "git clone failed, build failed..."
+                    exit 102
+                else
+                    cd fcloud
+                    if [ -n "$GIT_TAG_NAME" ]; then
+                        git checkout $GIT_TAG_NAME
+                    fi
+                    git checkout $GIT_BRANCH
+                    funUpdateConfig
+                    funUpdateAgconnect
+                    funTenantsConfig
+                    funUpdatePackageJson
+                    funUpdateIndex
+                    funUpdateDomainGif
+                    funToYarn
+                fi
+
+            }
+
+            funUpdateConfig() {
+                echo "start update infos in config.xml"
+                echo "****.fcloud.assistant =====> $PACKAGE_NAME..."
+                cd /apk/fcloud/mobile
+                sed -i "s/****.fcloud.assistant/$PACKAGE_NAME/g" config.xml
+
+                echo "name & description =====> $APP_NAME..."
+                sed -i "s/****/$APP_NAME/g" config.xml
+                # xmlstarlet ed -u '/widget/name' -v $APP_NAME config.xml
+                # xmlstarlet ed -u '/widget/description' -v $APP_NAME config.xml
+
+                echo "jpush APP_KEY =====>  $JPUSH_KEY..."
+                sed -i "s/c3f5c171705760a4030fd044/$JPUSH_KEY/g" config.xml
+                # xmlstarlet ed -u '/widget/plugin[name="jpush-phonegap-plugin"]/variable[name="APP_KEY"]' -v $JPUSH_KEY config.xml
+                echo "end update infos in config.xml"
+
+            }
+
+            funUpdateAgconnect() {
+                cd /apk/fcloud/mobile
+                echo "start update infos in agconnect-services.json"
+                sed -i "s/****.fcloud.assistant/$PACKAGE_NAME/g" agconnect-services.json
+                echo "end update infos in agconnect-services.json"
+            }
+
+            funTenantsConfig() {
+                cd /apk/fcloud/mobile/src/assets/config/config.json
+                echo "start update infos in src/assets/config.json"
+                APP_TENANTS_line=$(awk -F"\"" '/IsMultiTenants/{print NR}' config.json)        # 记住行号
+                APP_TENANTS_old=$(awk -F"\"" '/IsMultiTenants/{print $4}' config.json)         # 获取旧数据
+                sed -e "$APP_TENANTS_line s@$APP_TENANTS_old@$IS_MULTI_TENANT@" -i config.json # 替换所在行的老数据
+
+                APP_URL_line=$(awk -F"\"" '/DefaultDomainName/{print NR}' config.json) # 记住行号
+                APP_URL_old=$(awk -F"\"" '/DefaultDomainName/{print $4}' config.json)  # 获取旧数据
+                sed -e "$APP_URL_line s@$APP_URL_old@$SITE_URL@" -i config.json        # 替换所在行的老数据
+                echo "end update infos in src/assets/config/config.json"
+            }
+
+            funUpdatePackageJson() {
+                cd /apk/fcloud/mobile
+                echo "start update infos in package.json"
+                echo "yunzutai.com =====> $SITE_URL..."
+                sed -i "s/yunzutai.com/$SITE_URL/g" package.json
+
+                echo "enableHttps =====> $IS_HTTPS..."
+                enableHttps_line=$(awk -F"\"" '/enableHttps/{print NR}' package.json)     # 记住行号
+                enableHttps_old=$(awk '/enableHttps/{print $2}' package.json)             # 获取旧数据
+                sed -e "$enableHttps_line s@$enableHttps_old@$IS_HTTPS,@" -i package.json # 替换所在行的老数据
+                sed -e "$enableHttps_line s@$enableHttps_old@$IS_HTTPS,@" -i
+
+                echo "jpush APP_KEY =====> $JPUSH_KEY..."
+                APP_KEY_line=$(awk -F"\"" '/APP_KEY/{print NR}' package.json)     # 记住行号
+                APP_KEY_old=$(awk -F"\"" '/APP_KEY/{print $4}' package.json)      # 获取旧数据
+                sed -e "$APP_KEY_line s@$APP_KEY_old@$JPUSH_KEY@" -i package.json # 替换所在行的老数据
+                echo "end update infos in package.json"
+            }
+
+            funUpdateIndex() {
+                cd /apk/fcloud/mobile/src
+                echo "start update infos in index.html"
+                echo "script gaode key =====> $GAODE_KEY..."
+                GAODE_KEY_line=$(awk -F"\"" '/AMap/{print NR}' index.html)              # 记住行号
+                GAODE_KEY_old=$(cat index.html | grep AMap | awk -F"&" '{print $2}')    # 获取旧数据
+                sed -e "$GAODE_KEY_line s@$GAODE_KEY_old@key=$GAODE_KEY@" -i index.html # 替换所在行的老数据
+                echo "end update infos in index.html"
+            }
+
+            funToYarn() {
+                cd /apk/fcloud/mobile
+                echo "yarn"
+                yarn
+                if [ $? != 0 ]; then
+                    echo "yarn failed, build failed..."
+                    exit 103
+                else
+                    funToRunBuild
+                fi
+            }
+
+            funUpdateDomainGif() {
+                cd /apk/fcloud/mobile
+                echo "update domain-logo-default.gif..."
+                if [ ! -f "/apk/domain.png" ]; then
+                    echo "domain.png not exist"
+                else
+                    echo "domain.png exist"
+                    cp -rf /apk/domain.png src/assets/img/domain-logo-default.gif
+                fi
+            }
+
+            funToRunBuild() {
+                cd /apk/fcloud/mobile
+                echo "npm run build"
+                npm run build
+                if [ $? != 0 ]; then
+                    echo "npm run build failed, build failed..."
+                    exit 104
+                else
+                    funToCopyResources
+                fi
+            }
+
+            funToCopyResources() {
+                cd /apk/fcloud/mobile
+                echo "copy new resources into mobile/resources..."
+                cp -rf /apk/icon.png resources/icon.png
+                cp -rf /apk/splash.png resources/splash.png
+                funCordovaGenerateResources
+            }
+
+            funCordovaGenerateResources() {
+                cd /apk/fcloud/mobile
+                echo "ionic cordova resources"
+                ionic cordova resources
+                if [ $? != 0 ]; then
+                    echo "cordova generate resources failed, build failed..."
+                    exit 105
+                else
+                    funCordovaAddPlatform
+                fi
+            }
+
+            funCordovaAddPlatform() {
+                cd /apk/fcloud/mobile
+                echo "cordova platform add android"
+                cordova platform add android
+                if [ $? != 0 ]; then
+                    echo "add platform failed, build failed..."
+                    exit 106
+                else
+                    funCordovaBuildAndroid
+                fi
+            }
+
+            funCordovaBuildAndroid() {
+                cd /apk/fcloud/mobile
+                echo "cordova build android"
+                cordova build android --release
+                if [ $? != 0 ]; then
+                    echo "build platform failed, build failed..."
+                    exit 107
+                else
+                    funToSignApk
+                fi
+            }
+
+            funToSignApk() {
+                echo "jarsigner to sign apk"
+                cd platforms/android/app/build/outputs/apk/release
+                jarsigner -verbose -keystore /apk/$APP_KEYWORD.keystore -keypass 123456 -storepass 123456 -signedjar $APP_KEYWORD.apk app-release-unsigned.apk $APP_KEYWORD
+                if [ $? != 0 ]; then
+                    echo "sign apk failed, build failed..."
+                    exit 201
+                else
+                    funToUploadApk
+                fi
+            }
+
+            funToUploadApk() {
+                echo "upload $APP_KEYWORD.apk to $APP_KEYWORD file"
+                cd platforms/android/app/build/outputs/apk/release
+                curl -X POST "$GLOBAL_NEXUX/service/rest/v1/components?repository=artifact" -H "accept:application/json" -H "Content-Type:multipart/form-data" -F "raw.directory=fcloud-artifact/project/$APP_KEYWORD" -F "raw.asset1=@$APP_KEYWORD.apk" -F "raw.asset1.filename=$APP_KEYWORD.apk" -u "$GLOBAL_NEXUX_BASICAUTH" -v
+                if [ $? != 0 ]; then
+                    echo "upload to repository failed, build failed..."
+                    exit 202
+                else
+                    exit 0
+                fi
+            }
+
+            while [ -n "$1" ]; do
+                case "$1" in
+                -a)
+                    APP_KEYWORD=$2
+                    echo "APP_KEYWORD is $APP_KEYWORD"
+                    PACKAGE_NAME=****.$APP_KEYWORD.assistant
+                    ;;
+                -b)
+                    APP_NAME=$2
+                    echo "APP_NAME is $APP_NAME"
+                    ;;
+                -c)
+                    JPUSH_KEY=$2
+                    echo "JPUSH_KEY is $JPUSH_KEY"
+                    ;;
+                -d)
+                    GIT_BRANCH=$2
+                    echo "GIT_BRANCH is $GIT_BRANCH"
+                    ;;
+                -e)
+                    GIT_TAG_NAME=$2
+                    echo "GIT_TAG_NAME is $GIT_TAG_NAME"
+                    ;;
+                -f)
+                    GAODE_KEY=$2
+                    echo "GAODE_KEY is $GAODE_KEY"
+                    ;;
+                -g)
+                    SITE_URL=$2
+                    echo "SITE_URL is $SITE_URL"
+                    ;;
+                -h)
+                    IS_MULTI_TENANT=$2
+                    echo "IS_MULTI_TENANT is $IS_MULTI_TENANT"
+                    ;;
+                -i)
+                    IS_HTTPS=$2
+                    echo "IS_HTTPS is $IS_HTTPS"
+                    ;;
+                -j)
+                    APP_COLOR=$2
+                    echo "APP_COLOR is $APP_COLOR"
+                    ;;
+                esac
+                shift
+            done
+
+            funCreateWorkspace
+
+        </pre>
+    </div>
+    <footer class="footer">
+        <p><span class="love">❤</span> by Lin Man</p>
+    </footer>
+</body>
+
+</html>

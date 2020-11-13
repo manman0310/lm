@@ -1,14 +1,14 @@
 ---
 layout: blog_default
 title:  "基于cordova持续集成app脚本"
-tag: 持续集成
+tag: [CICD, cordova, android, shell]
 ---
 
-# 基于cordova自动打包app脚本
+# 基于cordova持续集成app脚本
 
 ## 场景
 
-**公司需要项目定制化APP，其实就是基于公司产品APP进行的二次定制，替换应用信息以及资源之后自动打包即可。**
+**公司需要项目定制化APP，其实就是基于公司产品APP（Android）进行的二次定制，替换应用信息以及资源之后自动打包即可。**
 
 ## 环境准备
 
@@ -24,6 +24,8 @@ tag: 持续集成
 ## 脚本说明
 
 ### 生成安卓签名脚本：【generate-keystore.sh】
+
+<a class="u-post-a" href="../../../assets/resource/generate-keystore.html" target="_blank">点 · 这 · 里 · 查 · 看 · 脚 · 本 ~</a>  
 
 ##### 传入参数
 
@@ -55,13 +57,11 @@ tag: 持续集成
 ./generate-keystore.sh -a delian
 ```
 
-##### 脚本内容
-
-<a href="../../../assets/resource/generate-keystore.html" target="_blank">查看脚本</a>
-
 ***
 
 ### 构建预备脚本：【prepare.sh】
+
+<a class="u-post-a" href="../../../assets/resource/prepare.html" target="_blank">点 · 这 · 里 · 查 · 看 · 脚 · 本 ~</a> 
 
 ##### 传入参数
 
@@ -108,7 +108,9 @@ tag: 持续集成
 
 ***
 
-### 构建过程脚本：【build.sh】 
+### 构建过程脚本：【build.sh】  
+
+<a class="u-post-a"  href="../../../assets/resource/build.html" target="_blank">点 · 这 · 里 · 查 · 看 · 脚 · 本 ~</a>  
 
 ##### 传入参数 & 默认参数
 

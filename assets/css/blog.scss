@@ -48,45 +48,89 @@
             background: white;
             outline: 10px solid #fe91ca;
             box-shadow: 0 0 0 5px #fe91ca;
+            overflow: hidden;
 
             .m-contents {
-                font-size: 30px;
-                padding: 20px 38px 0;
-                font-weight: 600;
-                text-emphasis-style: '❤';
-                text-emphasis-color: #fe91ca;
-                -webkit-text-emphasis-style: '❤';
-                -webkit-text-emphasis-color: #fe91ca;
-            }
+                height: 115px;
+                margin-bottom: 8px;
 
-            h3 {
-                padding: 0 20px;
-                margin: 0;
-                margin-top: 10px;
-                font-size: 15px;
-            }
+                .m-about-me {
+                    height: 90px;
+                    padding: 20px 14px 0;
+                    margin-bottom: 8px;
 
-            ul {
-                margin: 0;
+                    .m-pics {
+                        height: 90px;
+                        width: 90px;
+                        display: inline-block;
 
-                li {
-                    height: 30px;
-                    line-height: 30px;
-                    list-style: none;
-
-                    a {
-                        text-decoration: none;
-                        color: #251f44;
-                        font-size: 14px;
-
-                        &:hover {
-                            font-weight: 600;
-                            text-decoration: underline;
+                        img {
+                            height: 100%;
                         }
+                    }
 
+                    .m-info {
+                        width: 170px;
+                        height: 90px;
+                        font-size: 15px;
+                        font-weight: 600;
+                        display: inline-block;
                     }
                 }
             }
+
+            .m-category {
+                padding-top: 10px;
+                height: calc(100% - 134px);
+                overflow-y: auto;
+                border-top: 1px #fe91ca dotted;
+
+                ul {
+                    margin: 0;
+                    padding-left: 30px;
+
+                    li {
+                        margin-bottom: 8px;
+                        list-style: '❤';
+                        color: #fe91ca;
+                        border-bottom: 1px #fe91ca dotted;
+                        padding-left: 8px;
+
+                        .m-badge {
+                            display: inline-block;
+                            width: fit-content;
+                            padding: 2px 6px;
+                            border-radius: 10px;
+                            border: 1px solid #ef61915e;
+                            background: #fe91ca38;
+                            font-size: 12px;
+                            height: 14px;
+                            line-height: 14px;
+                            -webkit-transform-origin-x: 0;
+                            -webkit-transform: scale(0.90);
+                            position: relative;
+                            bottom: 3px;
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: #251f44;
+                            font-size: 14px;
+                            display: block;
+                            width: 260px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+
+                        }
+                    }
+                }
+            }
+
         }
 
     }
@@ -138,6 +182,21 @@
         }
     }
 
+    .u-post-a {
+        text-decoration: none;
+        color: #9C27B0;
+        font-size: 14px;
+        margin-bottom: 30px;
+        display: block;
+        border: 1px dotted;
+        width: 200px;
+        text-align: center;
+        padding: 4px 30px;
+
+        &:hover {
+            font-weight: 600;
+        }
+    }
 }
 
 .blog_footer {
