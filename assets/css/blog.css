@@ -13,6 +13,10 @@
   background-attachment: fixed;
 }
 
+#particles-blog .header-blog {
+  width: 100%;
+}
+
 #particles-blog .header-blog .blog-title {
   color: #d3dbff;
   font-size: 36px;
@@ -26,6 +30,15 @@
 
 #particles-blog .header-blog .blog-title:hover {
   text-decoration: underline;
+}
+
+#particles-blog .header-blog .header-links {
+  float: right;
+  height: 60px;
+  line-height: 60px;
+  color: white;
+  font-weight: 600;
+  padding-right: 20px;
 }
 
 #g-blog {
@@ -74,23 +87,38 @@
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-contents .m-about-me .m-info {
-  width: 170px;
-  height: 90px;
+  width: 160px;
   font-size: 15px;
   font-weight: 600;
   display: inline-block;
+  vertical-align: top;
+  padding-top: 26px;
+  padding-left: 10px;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category {
-  padding-top: 10px;
-  height: calc(100% - 134px);
+  padding-top: 6px;
+  height: calc(100% - 130px);
   overflow-y: auto;
   border-top: 1px #fe91ca dotted;
 }
 
+#g-blog .g-blog-left .g-blog-left-inner .m-category .m-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 2px 6px;
+  border-radius: 2px;
+  background: #fe91ca38;
+  font-size: 12px;
+  height: 14px;
+  line-height: 14px;
+  position: relative;
+  bottom: 4px;
+}
+
 #g-blog .g-blog-left .g-blog-left-inner .m-category ul {
   margin: 0;
-  padding-left: 30px;
+  padding-left: 2px;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category ul li {
@@ -98,34 +126,26 @@
   list-style: '❤';
   color: #fe91ca;
   border-bottom: 1px #fe91ca dotted;
-  padding-left: 8px;
+  list-style-position: inside;
+  margin-left: 8px;
 }
 
-#g-blog .g-blog-left .g-blog-left-inner .m-category ul li .m-badge {
-  display: inline-block;
-  width: fit-content;
-  padding: 2px 6px;
-  border-radius: 10px;
-  border: 1px solid #ef61915e;
-  background: #fe91ca38;
-  font-size: 12px;
-  height: 14px;
-  line-height: 14px;
-  -webkit-transform-origin-x: 0;
-  -webkit-transform: scale(0.9);
-  position: relative;
-  bottom: 3px;
+#g-blog .g-blog-left .g-blog-left-inner .m-category ul li ::marker {
+  padding-top: 10px;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category ul li a {
   text-decoration: none;
   color: #251f44;
   font-size: 14px;
-  display: block;
-  width: 260px;
+  display: inline-block;
+  width: 268px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 15px;
+  height: 18px;
+  vertical-align: text-bottom;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category ul li a:hover {

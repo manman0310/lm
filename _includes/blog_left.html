@@ -1,11 +1,11 @@
 <div class="m-contents">
     <div class="m-about-me">
         <div class="m-pics">
-            <img src="/assets/favicon.png" alt="">
+            <img src="../../../assets/image/me.jpg" alt="">
         </div>
         <div class="m-info">
-            <div>Lin Man</div>
-            <div>热爱探索的前端攻城狮</div>
+            <div style="font-size: 20px;">Lin Man</div>
+            <div style="margin-bottom: 10px;">热爱探索的前端攻城狮</div>
         </div>
     </div>
 </div>
@@ -16,9 +16,11 @@
         <li>
             <a href="{{ post.url | prepend: site.github_url }}" title="{{ post.title  }}"
                 style="{% if post.title == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{ post.title }}</a>
-            {% for tag in post.tags %}
-            <span class="m-badge">{{ tag }}</span>
-            {% endfor %}
+            <div style="text-align: right;padding-right:4px">
+                {% for tag in post.tags %}
+                <span class="m-badge">{{ tag }}</span>
+                {% endfor %}
+            </div>
         </li>
     </ul>
     {% endfor %}

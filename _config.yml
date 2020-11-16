@@ -40,3 +40,5 @@ posts:
     url:'lm/2020-10-14-common-css'
   - title:'自动化构建ios APP'
     url:'lm/2020-11-11-auto-build-ios-app'
+  - title:'自动构建ios APP脚本'
+    url:'lm/2020-11-16-auto-build-ios-shell'
