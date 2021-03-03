@@ -1,7 +1,6 @@
 ---
 layout: blog_default
 title:  "自动化构建ios APP"
-tag: [CICD, Jenkins, ios]
 ---
 
 # 自动化构建ios APP

@@ -1,6 +1,6 @@
 # Site settings
 title: Lin Man
-description: Software Engineer
+description: Software Engineer & PM
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
@@ -8,8 +8,8 @@ description: Software Engineer
 short_name: LM
 username: Lin Man
 user_description: I want to be more than just a coder.
-user_title: Software Engineer
-user_title_cn: 高级前端开发工程师
+user_title: Software Engineer & PM
+user_title_cn: 高级前端开发 & 产品经理
 email: 591858556@qq.com
 markdown: kramdown
 kramdown:
@@ -21,24 +21,4 @@ github_url: https://manman0310.github.io/lm
 
 exclude: ["package.json", "src", "node_modules"]
 
-posts:
-  - title:'使用docker打包安卓APP'
-    url:'lm/2020-07-05-build-app'
-  - title:'快速释放docker空间的脚本'
-    url:'lm/2020-07-08-script-1'
-  - title:'基于cordova持续集成app脚本'
-    url:'lm/2020-08-17-auto-build-app-shell'
-  - title:'常用命令备忘录'
-    url:'lm/2020-07-20-memo-script'
-  - title:'基于cordova的安卓APP基础镜像'
-    url:'lm/2020-08-18-app-base-dockerfile'
-  - title:'shell脚本爬坑杂记'
-    url:'lm/2020-08-01-trouble-in-shell'
-  - title:'工作，不仅是工资'
-    url:'lm/2020-10-13-diary'
-  - title:'经常使用的css样式'
-    url:'lm/2020-10-14-common-css'
-  - title:'自动化构建ios APP'
-    url:'lm/2020-11-11-auto-build-ios-app'
-  - title:'自动构建ios APP脚本'
-    url:'lm/2020-11-16-auto-build-ios-shell'
+select_top: all

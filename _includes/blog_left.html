@@ -11,17 +11,48 @@
 </div>
 
 <div class="m-category">
-    {% for post in site.posts %}
+
+    {% for item in site.data.topic.toc %}
+    <details open>
+        <summary class="m-topic-title">
+            <div>{{ item.title }}</div>
+        </summary>
+        <ul>
+            {% for entry in item.subfolderitems %}
+            <li>
+                <a href="{{ entry.url | prepend: site.github_url }}" title="{{ entry.page }}"
+                    style="{% if entry.page == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{entry.page }}</a>
+                <div style="font-size: 12px;color: #9e9e9e;padding-left:20px;">
+                    <span>{{ entry.date }}</span>
+                </div>
+                <div style="padding-left:20px;padding-right:4px;height: 18px">
+                    {% for tag in entry.tags %}
+                    <span class="m-badge">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </details>
+
+
+
+    <!-- <div class="m-topic-title">{{ item.title }}</div>
     <ul>
+        {% for entry in item.subfolderitems %}
         <li>
-            <a href="{{ post.url | prepend: site.github_url }}" title="{{ post.title  }}"
-                style="{% if post.title == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{ post.title }}</a>
-            <div style="text-align: right;padding-right:4px">
-                {% for tag in post.tags %}
+            <a href="{{ entry.url | prepend: site.github_url }}" title="{{ entry.page }}"
+                style="{% if entry.page == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{entry.page }}</a>
+            <div style="font-size: 12px;color: #9e9e9e;padding-left:20px;">
+                <span>{{ entry.date }}</span>
+            </div>
+            <div style="padding-left:20px;padding-right:4px;height: 18px">
+                {% for tag in entry.tags %}
                 <span class="m-badge">{{ tag }}</span>
                 {% endfor %}
             </div>
         </li>
-    </ul>
+        {% endfor %}
+    </ul> -->
     {% endfor %}
 </div>

@@ -1,7 +1,6 @@
 ---
 layout: blog_default
 title:  "基于cordova持续集成app脚本"
-tag: [CICD, cordova, android, shell]
 ---
 
 # 基于cordova持续集成app脚本

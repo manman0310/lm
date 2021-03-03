@@ -1,7 +1,6 @@
 ---
 layout: blog_default
 title:  "shell脚本爬坑杂记"
-tag: [memo, shell]
 ---
 
 # shell脚本爬坑杂记

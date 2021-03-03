@@ -1,7 +1,6 @@
 ---
 layout: blog_default
 title:  "常用命令备忘录"
-tag: memo
 ---
 
 # 常用命令备忘录

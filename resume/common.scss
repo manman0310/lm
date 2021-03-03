@@ -1,4 +1,4 @@
-$bg1: #2b2c2c;
+$bg1: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
 $bg2: #292a2a;
 $color1: #979899;
 $light: #e0a80d;
@@ -17,39 +17,48 @@ p {
   margin: 0;
   padding: 0;
 }
+
 html {
   font-size: 14px;
   min-height: 100%;
 }
+
 body {
   font-size: 1rem;
   font-family: "microsoft yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: $bg1;
+  background-image: $bg1;
   color: $color1;
 }
+
 h2 {
   font-size: 4rem;
   font-weight: 200;
   margin: 0 0 1rem;
 }
+
 .img-responsive {
   max-width: 100%;
   height: auto;
   display: block;
 }
+
 .text-center {
   text-align: center;
 }
+
 .text-light {
   color: $light;
 }
+
 .hide {
   display: none;
 }
+
 .progress {
   position: relative;
   background: $border;
   height: 5px;
+
   .progress-bar {
     height: 100%;
     background: $light;
@@ -60,6 +69,7 @@ h2 {
 body {
   background: $bg1;
 }
+
 .loading {
   position: fixed;
   top: 45%;

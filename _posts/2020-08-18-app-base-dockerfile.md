@@ -1,7 +1,6 @@
 ---
 layout: blog_default
 title:  "基于cordova的安卓APP基础镜像"
-tag: [docker, android]
 ---
 
 # 基于cordova的安卓APP基础镜像

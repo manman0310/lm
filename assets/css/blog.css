@@ -4,13 +4,11 @@
 }
 
 #particles-blog {
-  background: #1a222c;
-  display: flex;
+  position: fixed;
   vertical-align: bottom;
-  height: 80px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  height: 50px;
+  width: 100%;
+  background: #f7c6d6;
 }
 
 #particles-blog .header-blog {
@@ -18,12 +16,13 @@
 }
 
 #particles-blog .header-blog .blog-title {
-  color: #d3dbff;
-  font-size: 36px;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: -3px -5px 8px #bcc1d2;
+  font-size: 44px;
   display: inline-block;
-  height: 80px;
-  line-height: 80px;
-  padding-left: 1em;
+  padding-top: 4px;
+  padding-left: .7em;
   text-decoration: none;
   font-weight: 600;
 }
@@ -34,45 +33,42 @@
 
 #particles-blog .header-blog .header-links {
   float: right;
-  height: 60px;
-  line-height: 60px;
+  height: 30px;
+  line-height: 30px;
   color: white;
   font-weight: 600;
   padding-right: 20px;
 }
 
 #g-blog {
-  height: calc(100vh - 138px);
-  overflow: hidden;
-  background: #fe91ca;
+  height: 100%;
 }
 
 #g-blog .g-blog-left {
   font-family: sans-serif;
-  float: left;
-  height: calc(100vh - 158px);
+  position: fixed;
   width: 300px;
   vertical-align: top;
-  padding: 10px 0 10px 10px;
+  padding: 0 0 10px 10px;
+  margin-top: 50px;
+  height: 100%;
+  overflow-y: auto;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner {
   height: 100%;
-  border-radius: 10px;
   background: white;
-  outline: 10px solid #fe91ca;
-  box-shadow: 0 0 0 5px #fe91ca;
   overflow: hidden;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-contents {
-  height: 115px;
+  height: 76px;
   margin-bottom: 8px;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-contents .m-about-me {
-  height: 90px;
-  padding: 20px 14px 0;
+  height: 70px;
+  padding: 0 14px 0;
   margin-bottom: 8px;
 }
 
@@ -92,15 +88,33 @@
   font-weight: 600;
   display: inline-block;
   vertical-align: top;
-  padding-top: 26px;
+  padding-top: 16px;
   padding-left: 10px;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category {
-  padding-top: 6px;
-  height: calc(100% - 130px);
+  height: calc(100% - 142px);
   overflow-y: auto;
   border-top: 1px #fe91ca dotted;
+}
+
+#g-blog .g-blog-left .g-blog-left-inner .m-category .m-topic-title {
+  outline: none;
+  height: 32px;
+  background: #f8e3ed;
+  line-height: 32px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+
+#g-blog .g-blog-left .g-blog-left-inner .m-category .m-topic-title div {
+  position: absolute;
+  top: 0;
+  padding: 0 12px;
+  background: #f8e3ed;
+  cursor: pointer;
+  text-align: right;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category .m-badge {
@@ -122,12 +136,13 @@
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category ul li {
-  margin-bottom: 8px;
+  padding-bottom: 4px;
   list-style: '❤';
   color: #fe91ca;
   border-bottom: 1px #fe91ca dotted;
   list-style-position: inside;
-  margin-left: 8px;
+  padding-left: 8px;
+  padding-top: 2px;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category ul li ::marker {
@@ -153,20 +168,16 @@
 }
 
 #g-blog .g-blog-right {
-  height: calc(100vh - 158px);
-  font-family: sans-serif;
   overflow-y: auto;
   overflow-x: hidden;
   width: calc(100vw - 380px);
   float: right;
   font-family: sans-serif;
-  margin-top: 10px;
   margin-right: 10px;
   padding-left: 50px;
-  border-radius: 10px;
   background: white;
-  outline: 10px solid #fe91ca;
-  box-shadow: 0 0 0 5px #fe91ca;
+  padding-top: 50px;
+  height: calc(100% - 50px);
 }
 
 #g-blog .g-blog-right h1 {
@@ -214,7 +225,6 @@
 }
 
 .blog_footer {
-  background: #1a222c;
   padding: 1px 0;
   text-align: center;
   color: #fff;

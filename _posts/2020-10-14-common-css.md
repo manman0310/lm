@@ -1,7 +1,6 @@
 ---
 layout: blog_default
 title:  "经常使用的css样式"
-tag: [memo, css]
 ---
 
 # 经常使用的css样式

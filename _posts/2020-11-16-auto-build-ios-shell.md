@@ -1,7 +1,6 @@
 ---
 layout: blog_default
 title:  "自动构建ios APP脚本"
-tag: [CICD, shell, ios]
 ---
 
 # 自动构建ios APP脚本

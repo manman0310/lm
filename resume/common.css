@@ -18,7 +18,7 @@ html {
 body {
   font-size: 1rem;
   font-family: "microsoft yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #2b2c2c;
+  background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
   color: #979899;
 }
 
@@ -59,7 +59,7 @@ h2 {
 
 /* loading */
 body {
-  background: #2b2c2c;
+  background: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
 }
 
 .loading {
