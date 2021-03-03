@@ -1,0 +1,51 @@
+toc:
+  - title: 产品
+    subfolderitems:
+      - page: "可视化诉讼"
+        url: "/2020/11/22/diary.html"
+        tags: [diary]
+        date: "2020-11-22"
+  - title: 工作
+    subfolderitems:
+      - page: "工作不仅是工资"
+        url: "/2020/10/13/diary.html"
+        tags: [diary]
+        date: "2020-10-13"
+  - title: 技术
+    subfolderitems:
+      - page: "使用docker打包安卓APP"
+        url: "/2020/07/05/build-app.html"
+        tags: [docker, cordova]
+        date: "2020-07-05"
+      - page: "快速释放docker空间的脚本"
+        url: "/2020/07/08/script-1"
+        tags: [docker]
+        date: "2020-07-08"
+      - page: "基于cordova持续集成app脚本"
+        url: "/2020/08/17/auto-build-app-shell.html"
+        tags: [CICD, cordova, android, shell]
+        date: "2020-08-17"
+      - page: "常用命令备忘录"
+        url: "/2020/07/20/memo-script.html"
+        tags: [memo]
+        date: "2020-07-20"
+      - page: "基于cordova的安卓APP基础镜像"
+        url: "/2020/08/18/app-base-dockerfile.html"
+        tags: [docker, android]
+        date: "2020-08-18"
+      - page: "shell脚本爬坑杂记"
+        url: "/2020/08/01/trouble-in-shell.html"
+        tags: [memo, shell]
+        date: "2020-08-01"
+      - page: "经常使用的css样式"
+        url: "/2020/10/14/common-css.html"
+        tags: [memo, css]
+        date: "2020-10-14"
+      - page: "自动化构建ios APP"
+        url: "/2020/11/11/auto-build-ios-app.html"
+        tags: [CICD, Jenkins, ios]
+        date: "2020-11-11"
+      - page: "自动构建ios APP脚本"
+        url: "/2020/11/16/auto-build-ios-shell.html"
+        tags: [CICD, shell, ios]
+        date: "2020-11-16"
