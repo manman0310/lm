@@ -98,6 +98,11 @@ body {
   padding: 0 14px 0;
   margin-bottom: 8px;
   cursor: pointer;
+  color: black;
+}
+
+#g-blog .g-blog-left .g-blog-left-inner .m-contents .m-about-mehover {
+  color: black;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-contents .m-about-me .m-pics {
