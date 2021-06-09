@@ -1,52 +1,36 @@
-body{
-    background: -webkit-linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); /* Firefox 3.6 - 15 */
-    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+body {
+    background: #cbe8fa;
     overflow: hidden;
     margin: 0;
 }
 
-.code{
+.code {
     font-size: 16px;
-    color: #6c3fb9f7;
+    color: #0071a9;
     width: 100%;
     overflow: auto;
-    height: calc(100vh - 66px);
-}
-
-.footer{
-    width: 100%;
-    background:#251f44;
-    padding: 10px 0;
-    margin-top: 100px;
-    text-align: center;
-    margin: 0;
-    color:#ffe0f7
-}
-
-.love{
-    color:red
+    height: 100vh;
+    font-weight: bold;
 }
 
 ::-webkit-scrollbar {
-    width: 14px; /*对垂直流动条有效*/
-    height: 14px; /*对水平流动条有效*/
-}/*定义滚动条的轨道颜色、内阴影及圆角*/
-::-webkit-scrollbar-track{
+    width: 10px; /*对垂直流动条有效*/
+    height: 10px; /*对水平流动条有效*/
+} /*定义滚动条的轨道颜色、内阴影及圆角*/
+::-webkit-scrollbar-track {
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: #fbccf0;
+    background-color: #cbe8fa;
     border-radius: 3px;
-}/*定义滑块颜色、内阴影及圆角*/
-::-webkit-scrollbar-thumb{
+} /*定义滑块颜色、内阴影及圆角*/
+::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #E8E8E8;
-}/*定义两端按钮的样式*/
+    -webkit-box-shadow: inset 0 0 6px #cbe8fa;
+    background-color: #008bc6;
+} /*定义两端按钮的样式*/
 ::-webkit-scrollbar-button {
-    background-color:#fbcdf0;
-}/*定义右下角汇合处的样式*/
+    background-color: #cbe8fa;
+} /*定义右下角汇合处的样式*/
 ::-webkit-scrollbar-corner {
-    background: #fbccf0;
+    background: #cbe8fa;
 }

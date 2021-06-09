@@ -11,8 +11,8 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 7px;
-  -webkit-box-shadow: inset 0 0 6px #ffe0f7ab;
-  background-color: #ffe0f7bf;
+  -webkit-box-shadow: inset 0 0 6px #67a9bf;
+  background-color: #67a9bf;
 }
 
 ::-webkit-scrollbar-button {
@@ -25,12 +25,17 @@
   background-color: #fbfbfb;
 }
 
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+
 #particles-blog {
   position: fixed;
   vertical-align: bottom;
-  height: 50px;
+  height: 30px;
   width: 100%;
-  background: #f7c6d6;
+  background: #67a9bf;
 }
 
 #particles-blog .header-blog {
@@ -71,8 +76,8 @@
   position: fixed;
   width: 300px;
   vertical-align: top;
-  padding: 0 0 10px 10px;
-  margin-top: 50px;
+  padding: 0 0 10px 0;
+  margin-top: 30px;
   height: 100%;
   overflow-y: auto;
 }
@@ -92,6 +97,7 @@
   height: 70px;
   padding: 0 14px 0;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-contents .m-about-me .m-pics {
@@ -115,26 +121,27 @@
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category {
-  height: calc(100% - 142px);
+  height: calc(100% - 122px);
   overflow-y: auto;
-  border-top: 1px #fe91ca dotted;
+  border-top: 1px #43a6dd dotted;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category .m-topic-title {
   outline: none;
   height: 32px;
-  background: #f8e3ed;
+  background: #67a9bf;
   line-height: 32px;
   font-weight: 600;
   cursor: pointer;
   position: relative;
+  color: white;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category .m-topic-title div {
   position: absolute;
   top: 0;
   padding: 0 12px;
-  background: #f8e3ed;
+  background: #67a9bf;
   cursor: pointer;
   text-align: right;
 }
@@ -144,7 +151,7 @@
   width: fit-content;
   padding: 2px 6px;
   border-radius: 2px;
-  background: #fe91ca38;
+  background: #cbe8fa;
   font-size: 12px;
   height: 14px;
   line-height: 14px;
@@ -160,8 +167,8 @@
 #g-blog .g-blog-left .g-blog-left-inner .m-category ul li {
   padding-bottom: 4px;
   list-style: '❤';
-  color: #fe91ca;
-  border-bottom: 1px #fe91ca dotted;
+  color: #43a6dd;
+  border-bottom: 1px #43a6dd dotted;
   list-style-position: inside;
   padding-left: 8px;
   padding-top: 2px;
@@ -192,13 +199,12 @@
 #g-blog .g-blog-right {
   overflow-y: auto;
   overflow-x: auto;
-  width: calc(100vw - 370px);
+  width: calc(100% - 330px);
   float: right;
   font-family: sans-serif;
-  padding-left: 50px;
   background: white;
-  padding-top: 50px;
-  height: calc(100% - 50px);
+  height: calc(100vh - 50px);
+  padding: 50px 14px 0 10px;
 }
 
 #g-blog .g-blog-right h1 {
@@ -210,14 +216,14 @@
 }
 
 #g-blog .g-blog-right table {
-  border: #ffe0f7 1px solid;
-  background: #ffe0f7;
+  border: #cbe8fa 1px solid;
+  background: #cbe8fa;
   border-collapse: collapse;
   font-size: 12px;
 }
 
 #g-blog .g-blog-right table thead {
-  border: 1px solid #ef61915e;
+  border: 1px solid #9dbde3;
 }
 
 #g-blog .g-blog-right table thead th {
@@ -225,13 +231,13 @@
 }
 
 #g-blog .g-blog-right table tbody td {
-  border: 1px solid #ef61915e;
+  border: 1px solid #9dbde3;
   padding: 2px 10px;
 }
 
 #g-blog .u-post-a {
   text-decoration: none;
-  color: #9C27B0;
+  color: #0071a9;
   font-size: 14px;
   margin-bottom: 30px;
   display: block;

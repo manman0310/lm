@@ -286,3 +286,10 @@
   font-size: 15px;
   margin-top: 10px;
 }
+
+.highlight {
+  pre.highlight {
+    width: calc(100% - 11px);
+    overflow-x: auto;
+  }
+}

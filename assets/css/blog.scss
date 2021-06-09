@@ -1,5 +1,21 @@
-$header-height:50px;
+$header-height:30px;
 $inner-height:calc(100vh - 72px);
+// theme1
+$color-theme1:#67a9bf;
+$tag-color1:#cbe8fa;
+$tag-text1:#43a6dd;
+$summary-title1:white;
+$table-bg1:#cbe8fa;
+$table-border1:#9dbde3;
+$a-text1:#0071a9;
+// theme2
+$color-theme2:#f7c6d6;
+$tag-color2:#fe91ca38;
+$tag-text2:#fe91ca;
+$summary-title2:black;
+$table-bg2:#ffe0f7;
+$table-border2: #ef61915e;
+$a-text2:#9C27B0;
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -13,8 +29,8 @@ $inner-height:calc(100vh - 72px);
 
 ::-webkit-scrollbar-thumb {
     border-radius: 7px;
-    -webkit-box-shadow: inset 0 0 6px #ffe0f7ab;
-    background-color: #ffe0f7bf;
+    -webkit-box-shadow: inset 0 0 6px $color-theme1;
+    background-color: $color-theme1;
 }
 
 ::-webkit-scrollbar-button {
@@ -27,12 +43,18 @@ $inner-height:calc(100vh - 72px);
     background-color: #fbfbfb;
 }
 
+body {
+    margin: 0;
+    overflow-y: hidden;
+}
+
+
 #particles-blog {
     position: fixed;
     vertical-align: bottom;
     height: $header-height;
     width: 100%;
-    background: #f7c6d6;
+    background: $color-theme1;
 
     .header-blog {
         width: 100%;
@@ -72,7 +94,7 @@ $inner-height:calc(100vh - 72px);
         position: fixed;
         width: 300px;
         vertical-align: top;
-        padding: 0 0 10px 10px;
+        padding: 0 0 10px 0;
         margin-top: $header-height;
         height: 100%;
         overflow-y: auto;
@@ -90,6 +112,7 @@ $inner-height:calc(100vh - 72px);
                     height: 70px;
                     padding: 0 14px 0;
                     margin-bottom: 8px;
+                    cursor: pointer;
 
                     .m-pics {
                         height: 90px;
@@ -114,24 +137,25 @@ $inner-height:calc(100vh - 72px);
             }
 
             .m-category {
-                height: calc(100% - 142px);
+                height: calc(100% - 122px);
                 overflow-y: auto;
-                border-top: 1px #fe91ca dotted;
+                border-top: 1px $tag-text1 dotted;
 
                 .m-topic-title {
                     outline: none;
                     height: 32px;
-                    background: #f8e3ed;
+                    background: $color-theme1;
                     line-height: 32px;
                     font-weight: 600;
                     cursor: pointer;
                     position: relative;
+                    color: $summary-title1;
 
                     div {
                         position: absolute;
                         top: 0;
                         padding: 0 12px;
-                        background: #f8e3ed;
+                        background: $color-theme1;
                         cursor: pointer;
                         text-align: right;
                     }
@@ -142,7 +166,7 @@ $inner-height:calc(100vh - 72px);
                     width: fit-content;
                     padding: 2px 6px;
                     border-radius: 2px;
-                    background: #fe91ca38;
+                    background: $tag-color1;
                     font-size: 12px;
                     height: 14px;
                     line-height: 14px;
@@ -157,8 +181,8 @@ $inner-height:calc(100vh - 72px);
                     li {
                         padding-bottom: 4px;
                         list-style: '❤';
-                        color: #fe91ca;
-                        border-bottom: 1px #fe91ca dotted;
+                        color: $tag-text1;
+                        border-bottom: 1px $tag-text1 dotted;
                         list-style-position: inside;
                         padding-left: 8px;
                         padding-top: 2px;
@@ -196,13 +220,12 @@ $inner-height:calc(100vh - 72px);
     .g-blog-right {
         overflow-y: auto;
         overflow-x: auto;
-        width: calc(100vw - 370px);
+        width: calc(100% - 330px);
         float: right;
         font-family: sans-serif;
-        padding-left: 50px;
         background: white;
-        padding-top: 50px;
-        height: calc(100% - 50px);
+        height: calc(100vh - 50px);
+        padding: 50px 14px 0 10px;
 
         h1 {
             margin-top: 0;
@@ -213,13 +236,13 @@ $inner-height:calc(100vh - 72px);
         }
 
         table {
-            border: #ffe0f7 1px solid;
-            background: #ffe0f7;
+            border: $table-bg1 1px solid;
+            background: $table-bg1;
             border-collapse: collapse;
             font-size: 12px;
 
             thead {
-                border: 1px solid #ef61915e;
+                border: 1px solid $table-border1;
 
                 th {
                     padding: 4px 8px;
@@ -228,7 +251,7 @@ $inner-height:calc(100vh - 72px);
 
             tbody {
                 td {
-                    border: 1px solid #ef61915e;
+                    border: 1px solid $table-border1;
                     padding: 2px 10px;
                 }
             }
@@ -237,7 +260,7 @@ $inner-height:calc(100vh - 72px);
 
     .u-post-a {
         text-decoration: none;
-        color: #9C27B0;
+        color: $a-text1;
         font-size: 14px;
         margin-bottom: 30px;
         display: block;
