@@ -16,8 +16,8 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 highlighter: rouge
-# baseurl: https://manman0310.github.io
-# github_url: https://manman0310.github.io/lm
+baseurl: https://manman0310.github.io
+github_url: https://manman0310.github.io/lm
 
 exclude: ["package.json", "src", "node_modules"]
 
