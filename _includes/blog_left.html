@@ -20,16 +20,21 @@
         <ul>
             {% for entry in item.subfolderitems %}
             <li>
-                <a href="{{ entry.url | prepend: site.github_url }}" title="{{ entry.page }}"
-                    style="{% if entry.page == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{entry.page }}</a>
-                <div style="font-size: 12px;color: #9e9e9e;padding-left:20px;">
-                    <span>{{ entry.date }}</span>
-                </div>
-                <div style="padding-left:20px;padding-right:4px;height: 18px">
-                    {% for tag in entry.tags %}
-                    <span class="m-badge">{{ tag }}</span>
-                    {% endfor %}
-                </div>
+                <a href="{{ entry.url | prepend: site.github_url }}"
+                    style="{% if entry.page == page.title %}background: rgb(103 169 191 / 13%);box-shadow: 2px 2px 5px 3px rgb(103 169 191 / 13%){% endif %}"
+                    title="{{ entry.page }}">
+                    <span class="m-nav-title"
+                        style="{% if entry.page == page.title %}font-weight:600{% else %}font-weight: 500{% endif %}">{{entry.page }}</span>
+                    <div style="font-size: 12px;color: #9e9e9e;">
+                        <span>{{ entry.date }}</span>
+                    </div>
+                    <div style="padding-right:4px;height: 18px">
+                        {% for tag in entry.tags %}
+                        <span class="m-badge">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </a>
+
             </li>
             {% endfor %}
         </ul>

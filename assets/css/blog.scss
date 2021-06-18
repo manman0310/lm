@@ -3,11 +3,12 @@ $inner-height:calc(100vh - 72px);
 // theme1
 $color-theme1:#67a9bf;
 $tag-color1:#cbe8fa;
-$tag-text1:#43a6dd;
+$tag-text1:rgba($color-theme1, 0.78);
 $summary-title1:white;
 $table-bg1:#cbe8fa;
 $table-border1:#9dbde3;
 $a-text1:#0071a9;
+$scrollbar-color:rgba($color-theme1, 0.48);
 // theme2
 $color-theme2:#f7c6d6;
 $tag-color2:#fe91ca38;
@@ -18,8 +19,8 @@ $table-border2: #ef61915e;
 $a-text2:#9C27B0;
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,9 +29,9 @@ $a-text2:#9C27B0;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 7px;
-    -webkit-box-shadow: inset 0 0 6px $color-theme1;
-    background-color: $color-theme1;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 6px $scrollbar-color;
+    background-color: $scrollbar-color;
 }
 
 ::-webkit-scrollbar-button {
@@ -66,7 +67,7 @@ body {
             font-size: 44px;
             display: inline-block;
             padding-top: 4px;
-            padding-left: .7em;
+            padding-left: 20px;
             text-decoration: none;
             font-weight: 600;
 
@@ -75,12 +76,29 @@ body {
             }
         }
 
+        .header-resume {
+            height: 30px;
+            line-height: 30px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            -webkit-animation: twinkling 2.1s infinite ease-in-out;
+            animation: twinkling 2.1s infinite ease-in-out;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+
+            &:hover {
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+
         .header-links {
             float: right;
             height: 30px;
             line-height: 30px;
             color: white;
-            font-weight: 600;
+            font-size: small;
             padding-right: 20px;
         }
     }
@@ -144,75 +162,78 @@ body {
             .m-category {
                 height: calc(100% - 122px);
                 overflow-y: auto;
-                border-top: 1px $tag-text1 dotted;
 
-                .m-topic-title {
-                    outline: none;
-                    height: 32px;
-                    background: $color-theme1;
-                    line-height: 32px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    position: relative;
-                    color: $summary-title1;
+                details {
+                    margin-bottom: 8px;
 
-                    div {
-                        position: absolute;
-                        top: 0;
-                        padding: 0 12px;
-                        background: $color-theme1;
+                    .m-topic-title {
+                        outline: none;
+                        height: 32px;
+                        // background: $color-theme1;
+                        line-height: 32px;
                         cursor: pointer;
-                        text-align: right;
-                    }
-                }
+                        position: relative;
+                        color: $summary-title1;
 
-                .m-badge {
-                    display: inline-block;
-                    width: fit-content;
-                    padding: 2px 6px;
-                    border-radius: 2px;
-                    background: $tag-color1;
-                    font-size: 12px;
-                    height: 14px;
-                    line-height: 14px;
-                    position: relative;
-                    bottom: 4px;
-                }
-
-                ul {
-                    margin: 0;
-                    padding-left: 2px;
-
-                    li {
-                        padding-bottom: 4px;
-                        list-style: '❤';
-                        color: $tag-text1;
-                        border-bottom: 1px $tag-text1 dotted;
-                        list-style-position: inside;
-                        padding-left: 8px;
-                        padding-top: 2px;
-
-                        ::marker {
-                            padding-top: 10px;
+                        div {
+                            position: absolute;
+                            top: 0;
+                            padding: 0 12px;
+                            background: rgba($color-theme1, 0.78);
+                            cursor: pointer;
+                            box-shadow: 1px 1px 2px 2px rgba($color-theme1, 0.49);
+                            width: 80px;
+                            border-radius: 0 5px 5px 0;
                         }
+                    }
 
-                        a {
-                            text-decoration: none;
-                            color: #251f44;
-                            font-size: 14px;
-                            display: inline-block;
-                            width: 260px;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            line-height: 15px;
-                            height: 18px;
-                            vertical-align: text-bottom;
+                    ul {
+                        margin: 0;
+                        padding-left: 2px;
 
-                            &:hover {
-                                text-decoration: underline;
+                        li {
+                            list-style: '❤';
+                            color: $tag-text1;
+                            list-style-position: inside;
+                            padding-left: 8px;
+                            padding-top: 4px;
+                            margin-top: 4px;
+
+                            ::marker {
+                                padding-top: 10px;
                             }
 
+                            a {
+                                text-decoration: none;
+                                color: #251f44;
+                                font-size: 14px;
+                                display: inline-block;
+                                width: 248px;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                vertical-align: text-top;
+                                padding: 0 4px 2px;
+
+                                &:hover {
+                                    background: rgba($color-theme1, 0.13);
+                                    box-shadow: 2px 2px 5px 3px rgba($color-theme1, 0.13);
+                                }
+
+                                .m-badge {
+                                    display: inline-block;
+                                    width: fit-content;
+                                    padding: 2px 4px;
+                                    border-radius: 2px;
+                                    background: #cbe8fa;
+                                    font-size: .6em;
+                                    height: 12px;
+                                    line-height: 12px;
+                                    position: relative;
+                                    bottom: -1px;
+                                    color: $color-theme1;
+                                }
+                            }
                         }
                     }
                 }
@@ -293,5 +314,26 @@ body {
         text-decoration: none;
         margin: 0;
         color: #fff;
+    }
+}
+
+@-webkit-keyframes twinkling {
+
+    0% {
+        opacity: 0.4;
+        filter: alpha(opacity=20);
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: alpha(opacity=50);
+        -webkit-transform: scale(2);
+    }
+
+    100% {
+        opacity: 0.4;
+        filter: alpha(opacity=20);
+        -webkit-transform: scale(1);
     }
 }

@@ -2,9 +2,10 @@
 
   <div class="header-blog">
     <a class="blog-title" href="{{ site.github_url }}"></a>
-    <!-- <a class="blog-title" href="{{ site.github_url }}">{{ site.short_name }} 's Blog</a> -->
+    <a class="header-resume" aria-label="My Resume" href="{{ '/resume' | prepend: site.github_url }}" target="resume">My
+      Resume</a>
     <div class="header-links">
-      <div><b>Last updated on {{site.time | date_to_long_string }}</b></div>
+      <div>Last updated on {{site.time | date_to_long_string }}</div>
     </div>
   </div>
 </div>
