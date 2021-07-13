@@ -8,8 +8,12 @@ $light: #e0a80d;
 $border: #404242;
 $text-gray: #757575;
 
-@import "common";
-@import "gird";
+html {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
 
 ul {
   padding-left: 15px;
@@ -103,7 +107,7 @@ ul {
 .section {
   position: relative;
 
-  & > .container {
+  &>.container {
     display: flex;
     flex-flow: row wrap;
   }
@@ -137,7 +141,7 @@ ul {
       font-size: 1.5rem;
 
       small {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
     }
   }
@@ -158,7 +162,7 @@ ul {
 
     .intro {
       p {
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
         line-height: 2rem;
       }
     }
@@ -184,13 +188,14 @@ ul {
   .name {
     font-size: 2rem;
     font-weight: 200;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     margin-bottom: 4rem;
   }
 
   .name-slogan {
     position: relative;
     top: -2rem;
+    font-size: 1.3em;
   }
 
   .description {
@@ -204,30 +209,30 @@ ul {
     left: 0;
     width: 100%;
 
-    & > div:first-child {
+    &>div:first-child {
       border-bottom: 2px dashed $border;
-      padding-bottom: 1rem;
+      padding-bottom: 1.2rem;
     }
 
     h4 {
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin: 1.5rem 0;
     }
 
     .info {
-      line-height: 1rem;
+      line-height: 1.2rem;
     }
   }
 
   address {
     font-style: normal;
-    line-height: 1rem;
+    line-height: 1.2rem;
   }
 }
 
 .experience {
   margin-left: 2px;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   padding-left: 24px;
   border-left: 2px solid $border;
 
@@ -263,14 +268,23 @@ ul {
       color: $text-gray;
     }
 
-    .content {
-      // text-indent: 2rem;
-      border: 1px #757575 solid;
-      padding: 0.4rem;
-      text-align: center;
-      margin-top: 1.4rem;
-      margin-bottom: 0.7rem;
+    .content-title {
+      font-weight: bold;
     }
+
+    .content {
+      padding: 0.4rem;
+      margin-bottom: 0.7rem;
+
+      .content-body {
+        text-indent: 2rem;
+      }
+
+    }
+  }
+
+  .proj {
+    border-top: 1px #757575 solid;
   }
 }
 
@@ -281,13 +295,13 @@ ul {
   }
 
   .text-info {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     font-size: 1.2rem;
   }
 
   .num {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 1.2rem;
   }
 }
 
@@ -312,14 +326,14 @@ ul {
 .usually {
   .item {
     margin-right: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     line-height: 2rem;
     display: inline-block;
 
     h3 {
       margin-top: 0.5rem;
       margin-bottom: 0.8rem;
-      line-height: 1rem;
+      line-height: 1.2rem;
     }
   }
 }
@@ -391,6 +405,7 @@ ul {
 
   .section-header {
     .name-slogan {
+      font-size: 1.3em;
       top: 0;
     }
   }
@@ -426,7 +441,7 @@ ul {
     }
 
     .contact-info {
-      & > div:first-child {
+      &>div:first-child {
         border-bottom: none;
         padding-bottom: 0;
       }
@@ -435,12 +450,12 @@ ul {
         width: 80px;
         float: left;
         margin: 10px 0;
-        line-height: 1rem;
+        line-height: 1.2rem;
       }
 
       .info {
         padding: 10px 0 10px 80px;
-        line-height: 1rem;
+        line-height: 1.2rem;
       }
 
       a {
@@ -449,7 +464,7 @@ ul {
     }
 
     .name {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
   }
 
@@ -460,7 +475,7 @@ ul {
   }
 
   .experience .item {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
 }
 

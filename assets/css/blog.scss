@@ -47,6 +47,10 @@ $a-text2:#9C27B0;
 body {
     margin: 0;
     overflow-y: hidden;
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 25px;
+    letter-spacing: 1px;
 }
 
 
@@ -79,6 +83,7 @@ body {
         .header-resume {
             height: 30px;
             line-height: 30px;
+            font-size: 16px;
             color: white;
             font-weight: 600;
             text-decoration: none;
@@ -169,7 +174,7 @@ body {
                     .m-topic-title {
                         outline: none;
                         height: 32px;
-                        // background: $color-theme1;
+                        font-size: 15px;
                         line-height: 32px;
                         cursor: pointer;
                         position: relative;
@@ -187,6 +192,12 @@ body {
                         }
                     }
 
+                    .m-nav-title {
+                        position: relative;
+                        bottom: 2px;
+                        left: 2px;
+                    }
+
                     ul {
                         margin: 0;
                         padding-left: 2px;
@@ -194,6 +205,7 @@ body {
                         li {
                             list-style: '❤';
                             color: $tag-text1;
+                            font-size: 18px;
                             list-style-position: inside;
                             padding-left: 8px;
                             padding-top: 4px;
@@ -213,7 +225,7 @@ body {
                                 overflow: hidden;
                                 text-overflow: ellipsis;
                                 vertical-align: text-top;
-                                padding: 0 4px 2px;
+                                padding: 0 0 2px;
 
                                 &:hover {
                                     background: rgba($color-theme1, 0.13);
@@ -223,14 +235,14 @@ body {
                                 .m-badge {
                                     display: inline-block;
                                     width: fit-content;
-                                    padding: 2px 4px;
-                                    border-radius: 2px;
+                                    padding: 3px 4px;
+                                    border-radius: 4px;
                                     background: #cbe8fa;
                                     font-size: .6em;
                                     height: 12px;
                                     line-height: 12px;
                                     position: relative;
-                                    bottom: -1px;
+                                    bottom: 2px;
                                     color: $color-theme1;
                                 }
                             }
@@ -251,7 +263,7 @@ body {
         font-family: sans-serif;
         background: white;
         height: calc(100vh - 50px);
-        padding: 50px 14px 0 10px;
+        padding: 80px 14px 0 10px;
 
         h1 {
             margin-top: 0;
@@ -291,7 +303,7 @@ body {
         margin-bottom: 30px;
         display: block;
         border: 1px dotted;
-        width: 200px;
+        width: 150px;
         text-align: center;
         padding: 4px 30px;
 

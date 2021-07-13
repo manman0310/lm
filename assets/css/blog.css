@@ -28,6 +28,10 @@
 body {
   margin: 0;
   overflow-y: hidden;
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 25px;
+  letter-spacing: 1px;
 }
 
 #particles-blog {
@@ -61,6 +65,7 @@ body {
 #particles-blog .header-blog .header-resume {
   height: 30px;
   line-height: 30px;
+  font-size: 16px;
   color: white;
   font-weight: 600;
   text-decoration: none;
@@ -154,6 +159,7 @@ body {
 #g-blog .g-blog-left .g-blog-left-inner .m-category details .m-topic-title {
   outline: none;
   height: 32px;
+  font-size: 15px;
   line-height: 32px;
   cursor: pointer;
   position: relative;
@@ -171,6 +177,12 @@ body {
   border-radius: 0 5px 5px 0;
 }
 
+#g-blog .g-blog-left .g-blog-left-inner .m-category details .m-nav-title {
+  position: relative;
+  bottom: 2px;
+  left: 2px;
+}
+
 #g-blog .g-blog-left .g-blog-left-inner .m-category details ul {
   margin: 0;
   padding-left: 2px;
@@ -179,6 +191,7 @@ body {
 #g-blog .g-blog-left .g-blog-left-inner .m-category details ul li {
   list-style: '❤';
   color: rgba(103, 169, 191, 0.78);
+  font-size: 18px;
   list-style-position: inside;
   padding-left: 8px;
   padding-top: 4px;
@@ -199,7 +212,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: text-top;
-  padding: 0 4px 2px;
+  padding: 0 0 2px;
 }
 
 #g-blog .g-blog-left .g-blog-left-inner .m-category details ul li a:hover {
@@ -210,14 +223,14 @@ body {
 #g-blog .g-blog-left .g-blog-left-inner .m-category details ul li a .m-badge {
   display: inline-block;
   width: fit-content;
-  padding: 2px 4px;
-  border-radius: 2px;
+  padding: 3px 4px;
+  border-radius: 4px;
   background: #cbe8fa;
   font-size: .6em;
   height: 12px;
   line-height: 12px;
   position: relative;
-  bottom: -1px;
+  bottom: 2px;
   color: #67a9bf;
 }
 
@@ -229,7 +242,7 @@ body {
   font-family: sans-serif;
   background: white;
   height: calc(100vh - 50px);
-  padding: 50px 14px 0 10px;
+  padding: 80px 14px 0 10px;
 }
 
 #g-blog .g-blog-right h1 {
@@ -267,7 +280,7 @@ body {
   margin-bottom: 30px;
   display: block;
   border: 1px dotted;
-  width: 200px;
+  width: 150px;
   text-align: center;
   padding: 4px 30px;
 }

@@ -1,6 +1,10 @@
 toc:
   - title: 产品
     subfolderitems:
+      - page: "打造账户体系的几个思考"
+        url: "/2021/06/20/diary.html"
+        tags: [diary]
+        date: "2021-06-20"
       - page: "B端产品感悟随记1"
         url: "/2021/03/16/diary.html"
         tags: [diary]

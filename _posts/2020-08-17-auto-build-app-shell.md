@@ -24,7 +24,7 @@ title:  "基于cordova持续集成app脚本"
 
 ### 生成安卓签名脚本：【generate-keystore.sh】
 
-<a class="u-post-a" href="../../../assets/resource/generate-keystore.html" target="_blank">点 · 这 · 里 · 查 · 看 · 脚 · 本 ~</a>  
+<a class="u-post-a" href="../../../assets/resource/generate-keystore.html" target="_blank">查 · 看 · 脚 · 本</a>  
 
 ##### 传入参数
 
@@ -60,7 +60,7 @@ title:  "基于cordova持续集成app脚本"
 
 ### 构建预备脚本：【prepare.sh】
 
-<a class="u-post-a" href="../../../assets/resource/prepare.html" target="_blank">点 · 这 · 里 · 查 · 看 · 脚 · 本 ~</a> 
+<a class="u-post-a" href="../../../assets/resource/prepare.html" target="_blank">查 · 看 · 脚 · 本</a> 
 
 ##### 传入参数
 
@@ -109,7 +109,7 @@ title:  "基于cordova持续集成app脚本"
 
 ### 构建过程脚本：【build.sh】  
 
-<a class="u-post-a"  href="../../../assets/resource/build.html" target="_blank">点 · 这 · 里 · 查 · 看 · 脚 · 本 ~</a>  
+<a class="u-post-a"  href="../../../assets/resource/build.html" target="_blank">查 · 看 · 脚 · 本</a>  
 
 ##### 传入参数 & 默认参数
 
