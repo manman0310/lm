@@ -29,7 +29,7 @@ body {
   margin: 0;
   overflow-y: hidden;
   font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 15px;
   line-height: 25px;
   letter-spacing: 1px;
 }
@@ -78,6 +78,12 @@ body {
 #particles-blog .header-blog .header-resume:hover {
   text-decoration: none;
   cursor: pointer;
+}
+
+#particles-blog .header-blog .header-resume svg {
+  vertical-align: sub;
+  width: 20px;
+  height: 20px;
 }
 
 #particles-blog .header-blog .header-links {
@@ -226,11 +232,11 @@ body {
   padding: 3px 4px;
   border-radius: 4px;
   background: #cbe8fa;
-  font-size: .6em;
+  font-size: 11px;
   height: 12px;
   line-height: 12px;
   position: relative;
-  bottom: 2px;
+  bottom: 8px;
   color: #67a9bf;
 }
 
